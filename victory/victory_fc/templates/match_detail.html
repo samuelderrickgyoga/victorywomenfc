@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load image_tags %}
+{% block content %}
+<div class="bg-white p-2 rounded-lg shadow-lg max-w-lg mx-auto">
+    <!-- Match Image -->
+    <img src="{{ match.photo.url }}" alt="{{ match.opponent }}" class="w-full h-70 object-cover rounded-t-lg mb-4">
+
+    <!-- Match Details -->
+    <h2 class="text-2xl font-bold text-center mb-4">{{ match.opponent }}</h2>
+    <p class="font-semibold mb-2">Date: {{ match.date }}</p>
+    <p class="font-semibold mb-2">Location: {{ match.location }}</p>
+    <p class="font-semibold mb-2">Practice Time: {{ match.practice_time }}</p>
+    <p class="font-semibold mb-4">Match Time: {{ match.match_time }}</p>
+
+    <!-- Back to Matches Button -->
+    <div class="text-center">
+        <a href="{% url 'match_list' %}" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-500 transition duration-300">
+            Back to Matches
+        </a>
+    </div>
+</div>
+{% endblock %}

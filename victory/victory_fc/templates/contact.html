@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load image_tags %}
+{% block content %}
+<div class="bg-white py-0">
+
+
+
+
+    <div class="max-w-5xl mx-auto text-center">
+        <h3 class="text-2xl font-bold text-red-700 mb-4">About Us</h3>
+
+        <h4 class="text-xl font-semibold mb-2">Mission Statement</h4>
+        <p class="text-gray-600 mb-4">
+            Our mission at Victory Women FC is to combine the benefits of soccer with mental health support, empowering
+            women and young girls in Ottawa to achieve their soccer dreams while cultivating resilience and emotional
+            well-being.
+        </p>
+
+        <h4 class="text-xl font-semibold mb-2">History & Inspiration</h4>
+        <p class="text-gray-600 mb-4">
+            Victory Women FC was founded with a simple idea: to create a space where women and young girls can chase
+            their soccer dreams while receiving mental health guidance and support. We recognized that mental resilience
+            is just as important as physical fitness, and through our program, we aim to address both, helping women and
+            young girls thrive in life and sport.
+        </p>
+
+        <h4 class="text-xl font-semibold mb-2">Core Values</h4>
+        <ul class="list-disc list-inside text-gray-600 mb-4">
+            <li><strong>Empowerment:</strong> We inspire women and girls to believe in themselves, both on and off the
+                field.</li>
+            <li><strong>Mental Well-being:</strong> Through workshops, mentorship, and counseling, we help our players
+                strengthen their emotional health.</li>
+            <li><strong>Teamwork:</strong> We teach the value of working together, building relationships, and
+                supporting each other’s dreams.</li>
+            <li><strong>Dream Big:</strong> We encourage girls to pursue their soccer dreams, no matter the obstacles
+                they face.</li>
+        </ul>
+    </div>
+</div>
+<!-- Slideshow Section -->
+<div class="bg-white py-0">
+    <div class="max-w-full mx-auto text-center">
+
+        <!-- Slideshow Container -->
+        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000" style="width: 100%; height: 90vh;">
+
+            <!-- Slideshow Inner -->
+            <div class="carousel-inner h-full">
+
+                <!-- First Slide -->
+                <div class="carousel-item active h-full">
+                    <div class="grid grid-cols-3 gap-4 h-full">
+                        <img src="{% static 'images/img1.jpg' %}" class="w-full h-full object-cover" alt="Slide 1">
+                        <img src="{% static 'images/img2.jpg' %}" class="w-full h-full object-cover" alt="Slide 2">
+                        <img src="{% static 'images/img3.jpg' %}" class="w-full h-full object-cover" alt="Slide 3">
+                    </div>
+                </div>
+
+                <!-- Second Slide -->
+                <div class="carousel-item h-full">
+                    <div class="grid grid-cols-3 gap-4 h-full">
+                        <img src="{% static 'images/img4.jpg' %}" class="w-full h-full object-cover" alt="Slide 4">
+                        <img src="{% static 'images/img5.jpg' %}" class="w-full h-full object-cover" alt="Slide 5">
+                        <img src="{% static 'images/img6.jpg' %}" class="w-full h-full object-cover" alt="Slide 6">
+                    </div>
+                </div>
+
+                <!-- Third Slide -->
+                <div class="carousel-item h-full">
+                    <div class="grid grid-cols-3 gap-4 h-full">
+                        <img src="{% static 'images/img7.jpg' %}" class="w-full h-full object-cover" alt="Slide 7">
+                        <img src="{% static 'images/img3.jpg' %}" class="w-full h-full object-cover" alt="Slide 8">
+                        <img src="{% static 'images/img4.jpg' %}" class="w-full h-full object-cover" alt="Slide 9">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Slide Control -->
+            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <!-- Next Slide Control -->
+            <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto flex gap-12">
+        <!-- Contact Information -->
+        <div class="flex-1 bg-white border border-gray-300 shadow-md p-6 rounded-md" style="text-align: center; padding-top: 100px;">
+            <h3 class="text-2xl font-bold text-blue-700 mb-4">Contact Us</h3>
+            <p class="text-gray-600 mb-4"><strong>Email:</strong> <a href="#">Admin@vwofc.ca</a></p>
+            <p class="text-gray-600 mb-4"><strong>Phone:</strong> +(1) 4376659413</p>
+            <p class="text-gray-600 mb-4"><strong>Address:</strong> 815 st Laurent blvg room 225</p>
+
+            <!-- Follow Us Links -->
+            <h4 class="text-xl font-semibold mb-2">Follow Us</h4>
+            <p class="text-gray-600 mb-4">
+                <a href="#" class="text-blue-600">Facebook</a> |
+                <a href="#" class="text-blue-600">Twitter</a> |
+                <a href="#" class="text-blue-600">Instagram</a>
+            </p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="flex-1 bg-white border border-gray-300 shadow-md p-6 rounded-md">
+            <h4 class="text-xl font-semibold mb-2">Get In Touch</h4>
+            <form action="#" method="POST">
+                <div class="mb-4">
+                    <label for="name" class="block text-left text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Your Name">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-left text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Your Email">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-left text-gray-700">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-500">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

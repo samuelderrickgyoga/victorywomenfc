@@ -1,0 +1,107 @@
+{% load static %}
+{% load image_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory Women FC</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-blue-800 !important text-white p-4">
+        <nav class="container mx-auto">
+            <div class="flex justify-between">
+                <h1 class="text-xl font-bold" style="display: flex; align-items: center;"><img src="{% static 'images/logo.jpg' %}" alt="" class="w-12 h-12 object-cover mr-4 rounded-full">Victory FC</h1>
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                    <li><a href="" class="hover:underline"></a></li>
+                
+                    <!-- Team Profiles Dropdown -->
+                    <li class="relative">
+                        <a href="javascript:void(0);" class="hover:underline" onclick="toggleDropdown('profilesdd')">Profiles</a>
+                        <ul id="profilesdd" class="absolute hidden bg-white shadow-lg rounded-md p-2 mt-2 w-40 z-10">
+                            <li>
+                                <a href="{% url 'player_list' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Players</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'coaches_list' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Coaches</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'success_stories' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Success Stories</a>
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <!-- Fixtures Dropdown -->
+                    <li class="relative">
+                        <a href="javascript:void(0);" class="hover:underline" onclick="toggleDropdown('fixturesDropdown')">Fixtures</a>
+                        <ul id="fixturesDropdown" class="absolute hidden bg-white shadow-lg rounded-md p-2 mt-2 w-40 z-10">
+                            <li>
+                                <a href="{% url 'match_list' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Matches</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'event_list' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Events</a>
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <!-- Support Us Dropdown -->
+                    <li class="relative">
+                        <a href="javascript:void(0);" class="hover:underline" onclick="toggleDropdown('supportDropdown')">Support Us</a>
+                        <ul id="supportDropdown" class="absolute hidden bg-white shadow-lg rounded-md p-2 mt-2 w-40 z-10">
+                            <li>
+                                <a href="{% url 'donation' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Donate</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'volunteer' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Volunteer</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'sponsor' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sponsor a Player</a>
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <!-- Feed link leading to gallery -->
+                    <li><a href="{% url 'gallery' %}" class="hover:underline">Feed</a></li>
+                
+                    <li><a href="{% url 'contact' %}" class="hover:underline">About & Contact Us</a></li>
+                </ul>
+                
+                
+                
+            </div>
+        </nav>
+    </header>
+    <main class="container mx-auto p-4">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2024 Victory Women FC. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.classList.toggle('hidden');
+        }
+    
+        // Optional: Close dropdowns when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.hover\\:underline')) {
+                const dropdowns = document.querySelectorAll('ul.absolute');
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.add('hidden');
+                });
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %} <!-- Load static files -->
+{% load image_tags %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Upcoming Matches</h2>
+
+<!-- Grid layout for match tiles -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" style="display: flex; justify-content: space-between;">
+    {% for match in matches %}
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <!-- League Logo (Optional) -->
+        <img src="{{ match.league_logo.url }}" alt="League Logo" class="h-8 mx-auto mb-2">
+
+        <!-- Match Date and Time -->
+        <p class="text-sm text-gray-500">{{ match.date }} {{ match.time }}</p>
+        <p class="text-sm text-gray-500 mb-4">{{ match.location }}</p>
+
+        <!-- Opponents and Score -->
+        <div class="flex items-center justify-center mb-4">
+            {% if match.home_team_logo %}
+            <img src="{{ match.home_team_logo.url }}" alt="{{ match.home_team }}" class="w-12 h-12 object-cover mr-4">
+            {% else %}
+            <img src="{% static 'default_home_logo.png' %}" alt="{{ match.home_team }}" class="w-12 h-12 object-cover mr-4">
+            {% endif %}
+
+            <div class="text-xl font-bold"><p class="text-sm text-gray-500">{{ match.time }}</p></div>
+
+            {% if match.away_team_logo %}
+            <img src="{{ match.away_team_logo.url }}" alt="{{ match.away_team }}" class="w-12 h-12 object-cover ml-4">
+            {% else %}
+            <img src="{% static 'default_away_logo.png' %}" alt="{{ match.away_team }}" class="w-12 h-12 object-cover ml-4">
+            {% endif %}
+        </div>
+
+        <!-- Team Names -->
+        <div class="flex justify-center items-center text-xl font-semibold">
+            <span>{{ match.home_team }}</span>
+            <span class="mx-2">vs</span>
+            <span>{{ match.away_team }}</span>
+        </div>
+
+        <!-- View Details Link -->
+        <a href="{% url 'match_detail' match.pk %}" class="text-blue-600 hover:underline mt-4 block">View Details</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

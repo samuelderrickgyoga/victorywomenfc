@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load image_tags %}
+{% block content %}
+<div class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+    <h2 class="text-2xl font-bold text-center mb-4">Sponsor a Player</h2>
+    <p class="text-center mb-6">Help empower our players by sponsoring them. Fill out the form below.</p>
+    <form action="{% url 'sponsor' %}" method="post" class="space-y-4">
+        {% csrf_token %}
+        <input type="text" name="sponsor_name" placeholder="Your Name" required class="border p-2 w-full rounded" />
+        <input type="email" name="email" placeholder="Your Email" required class="border p-2 w-full rounded" />
+        <select name="player" required class="border p-2 w-full rounded">
+            <option value="" disabled selected>Select a Player</option>
+            {% for player in players %}
+                <option value="{{ player.id }}">{{ player.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="amount" placeholder="Sponsorship Amount ($)" required class="border p-2 w-full rounded" />
+        <textarea name="message" placeholder="Message for the Player" class="border p-2 w-full rounded h-24"></textarea>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition">Submit</button>
+    </form>
+</div>
+{% endblock %}

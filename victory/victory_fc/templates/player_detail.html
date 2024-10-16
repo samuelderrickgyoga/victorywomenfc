@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load image_tags %}
+{% block content %}
+<div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+    <!-- Player Image -->
+    <img src="{{ player.photo.url }}" alt="{{ player.name }}" class="w-48 h-48 object-cover rounded-full mx-auto">
+    
+    <!-- Player Name and Position -->
+    <h2 class="text-2xl font-bold text-center mt-4">{{ player.name }}</h2>
+    <p class="text-center text-gray-500">{{ player.position }}</p>
+    
+    <!-- Player Biography and Dream -->
+    <div class="mt-6">
+        <h3 class="text-xl font-semibold">Biography</h3>
+        <p class="text-gray-700">{{ player.bio }}</p>
+    </div>
+    
+    <div class="mt-6">
+        <h3 class="text-xl font-semibold">Dream</h3>
+        <p class="text-gray-700">{{ player.dream }}</p>
+    </div>
+
+    <!-- Back to List Button -->
+    <div class="mt-6 text-center">
+        <a href="{% url 'player_list' %}" class="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-500 transition duration-300">
+            Back to Players List
+        </a>
+    </div>
+</div>
+{% endblock %}
